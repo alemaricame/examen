@@ -1,0 +1,25 @@
+body{
+    background-color: rgba(61, 61, 60, 0.772);
+}
+header{
+    text-align: center;
+    padding-top: 10%;
+    text-decoration-line: underline;
+}
+h1{
+    color:white;
+}
+.sesion{
+    background-color: rgba(255, 255, 255, 0.221);
+    color:black;
+    text-align: center;
+    padding: 5%;
+    text-decoration: none;
+}
+input{
+  padding: 10px 30px;
+  margin: 8px 0;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.51);
+  text-decoration: none;
+}

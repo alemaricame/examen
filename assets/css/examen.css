@@ -1,0 +1,21 @@
+.exam{
+    text-align: center;
+    background-color: rgb(83,83,83);
+    padding: 5rem;
+}
+h1{
+    color: white;
+}
+.instrucciones{
+    padding: 2rem;
+    text-align: center;
+}
+.preguntas{
+    padding: 5rem 10rem;
+}
+#fin:hover{
+    background-color: white;
+}
+div{
+    margin-bottom: 5rem;
+}

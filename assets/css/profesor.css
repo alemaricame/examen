@@ -1,0 +1,23 @@
+
+.class{
+    background-color: rgb(40, 165, 61);
+    
+}
+li{
+    list-style: none;
+    color:white;
+    padding:1rem;
+}
+.datos{
+    float: left;
+    padding: 1% 5% 1%;
+    background-color: rgba(0, 0, 0, 0.144);
+    color:black;
+    margin-left: 5%;
+}
+.clases{
+    padding: 1% 5% 1%;
+    text-align: left;
+    display: flow-root;
+    flex-wrap: nowrap;
+}
