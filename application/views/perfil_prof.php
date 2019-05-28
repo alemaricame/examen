@@ -94,15 +94,15 @@
 						<label>Nombre del profesor: </label>
 						<input type="text" class="form-control" id="prof" placeholder="Nombre del profesor" value="<?php echo $nombre ?>" disabled> 
 						<label for="inputName"class="control-label" >Código de materia: </label>
-						<input type="text" class="form-control" name="idmateria" id="idmateria" placeholder="Código de materia" >
+						<input type="text" class="form-control" name="idmateria" id="idmateria" placeholder="Código de materia" required>
 						<label for="inputName"class="control-label" >Nombre de la materia: </label>
-						<input type="text" class="form-control" name="nombremat" id="nombremat" placeholder="Nombre de la materia">
+						<input type="text" class="form-control" name="nombremat" id="nombremat" placeholder="Nombre de la materia" required>
 						<label for="inputName"class="control-label" >Grupo:</label>
 						<input type="text" class="form-control" id="idgrupo" name="idgrupo" placeholder="Grupo" >
 						<label for="inputName"class="control-label" >Lista de alumnos </label>
-						<input type="file" id="lista" >
+						<input type="file" id="files" name="files[]" required>
 						<br>
-						<p style="color:red;  font-weight: bold;"> *La lista de alumnos debe contener NÚMERO DE LISTA/ NÚMERO DE CONTROL/ NOMBRE DEL ALUMNO</p>
+						<p style="color:red;  font-weight: bold;"> *La lista de alumnos debe contener NÚMERO DE CONTROL/ NOMBRE DEL ALUMNO</p>
 						<button id="subirmat" type="submit" class="btn btn-info">Alta</button>
 					</form>
 					</nav>

@@ -1,6 +1,21 @@
 window.addEventListener('load', function() {
     var idprofesor = document.getElementById('idprofesor').value;
+    /* OBTENER LISTA DE ALUMNOS */
+    $('#subirmat').on('click', function() {
+      console.log("subir"); 
+      var file_data = $('#files').prop('files')[0];
+      var form_data = new FormData();
+      form_data.append('file',file_data);
+        
+      console.log(file_data);
+      console.log(form_data);
+     const numFiles = file_data.length;
+     console.log(numFiles);
 
+    });
+    
+
+    /* ENVIAR DATOS A INSERTAR */
     $.ajax({
         type:'GET',
         url:"http://localhost/examen/index.php/login/materias",

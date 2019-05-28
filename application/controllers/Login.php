@@ -10,7 +10,8 @@ class Login extends CI_Controller {
 
    }
 
-  
+   private $myvar = NULL;
+
    public function removeCache(){
    $this->output->set_header('Last-Modified:'.gmdate('D, d M Y H:i:s').'GMT');
    $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate');
@@ -20,6 +21,7 @@ class Login extends CI_Controller {
    public function iniciar_sesion() {
       if($this->session->userdata('logueado')){
          //redirect('index.php/usuarios/logueado');
+         
          $this->logueado();
       }
       else{
@@ -34,7 +36,8 @@ class Login extends CI_Controller {
        $tipo = $this->input->post('user');
        $usuario = $this->input->post('usuario');
        $password = $this->input->post('password');
-
+         $this->myvar = $tipo;
+        
        if($tipo=="profesor"){
          $result=$this->Login_model->inicioprofesor($usuario,$password);
 
@@ -43,7 +46,8 @@ class Login extends CI_Controller {
                   'idprofesor'=>$result->idprofesor,
                   'nombre'=>$result->nombre,
                   'password'=>$result->password,
-                  'logueado'=>TRUE
+                  'logueado'=>TRUE,
+                  'usuario' => "profesor"
                );
                $this->session->set_userdata($result_data);
                
@@ -69,6 +73,16 @@ class Login extends CI_Controller {
    }
    }
 
+   public function logueado(){
+      $tip =$this->session->userdata('usuario');
+      if($tip=="profesor"){
+         $this->logueadoprofesor();
+      }else{
+         if($tip=="alumno"){
+            $this->logueadoalumno();
+         }
+      }
+   }
    public function logueadoprofesor(){
       $datos = $this->session->userdata();
 
@@ -78,6 +92,7 @@ class Login extends CI_Controller {
    public function logueadoalumno(){
       $this->load->view('perfil_alum');
    }
+
    public function materias(){
       $idprofesor = $this->session->userdata('idprofesor');
       $result=$this->Login_model->materias($idprofesor);
@@ -89,18 +104,28 @@ class Login extends CI_Controller {
       $nombre = $this->input->post('nombremat');
       $idgrupo = $this->input->post('idgrupo');
 
+      if($nombre && $idgrupo == ""){
+         echo "<script>
+         alert('Guardado');
+         window.location= 'iniciar_sesion'
+         </script>";
+      }else{
+
       $result = $this->Prof_model->alta($idprofesor,$idmateria,$nombre,$idgrupo);
 
       if($result){
          echo "<script>
           alert('Guardado');
+          window.location= 'iniciar_sesion'
           </script>";
+         
       }else{
          echo "<script>
           alert('Error al guardar');
+          window.location= 'iniciar_sesion'
           </script>";
       }
-
+   }
    }      
 }
 

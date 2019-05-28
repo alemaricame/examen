@@ -27,9 +27,10 @@
             'idgrupo'=>$idgrupo, 
         );
         $resultg = $this->db->insert('grupo', $data);
-        if($resulg){
+        if($resultg){
         //carga profesor
         $data = array( 
+
             'idprofesor'=>$idprofesor, 
             'idmateria'=>$idmateria, 
             'idgrupo' => $idgrupo
@@ -38,18 +39,22 @@
         }else{//grupo
             echo "<script>
             alert('Error al insertar grupo');
+            window.location= 'iniciar_sesion'
             </script>";
         }
         }else{//profesormateria
             echo "<script>
             alert('Error al insertar profesormateria');
+            window.location= 'iniciar_sesion'
             </script>";
         }
        }else{ //materia
         echo "<script>
         alert('Error al insertar materia');
+        window.location= 'iniciar_sesion'
         </script>";
        }
+       return $resultcp;
     }
 
 
