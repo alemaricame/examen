@@ -52,6 +52,7 @@
 	<![endif]-->
 
     </head>
+
     <header>
         <div class="exam">
             <h1>Examen<h1>
@@ -100,15 +101,19 @@
 						<label for="inputName"class="control-label" >Grupo:</label>
 						<input type="text" class="form-control" id="idgrupo" name="idgrupo" placeholder="Grupo" >
 						<label for="inputName"class="control-label" >Lista de alumnos </label>
-						<input type="file" id="files" name="files[]" required>
+						<input type="file" name="xlfile" id="xlf" />
 						<br>
 						<p style="color:red;  font-weight: bold;"> *La lista de alumnos debe contener NÚMERO DE CONTROL/ NOMBRE DEL ALUMNO</p>
 						<button id="subirmat" type="submit" class="btn btn-info">Alta</button>
 					</form>
+
+					<pre id="out"></pre>
+					<div id="htmlout"></div>
 					</nav>
 				 </div>
 				 </div>
 				 </div>
+			
 		</div>
 		<!-- FIN MODAL DAR DE ALTA MATERIA -->
 
@@ -151,7 +156,7 @@
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
 	</div>
-	
+
 	<!-- jQuery -->
 	<script src="<?=base_url()?>js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -178,6 +183,14 @@
 	<script src="<?=base_url()?>js/examen.js"></script>
 	<!-- profesor js -->
 	<script src="<?=base_url()?>js/profesor.js"></script>
+	<script src="<?=base_url()?>dist/cpexcel.js"></script>
+	<!-- importar excel -->
+	<script src="<?=base_url()?>js/shim.js"></script>
+	<script src="<?=base_url()?>js/jszip.js"></script>
+	<script src="<?=base_url()?>js/xlsx.js"></script>
+	<script>
+	    
+	</script>
 	</body>
 </html>
 

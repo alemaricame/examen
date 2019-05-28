@@ -58,8 +58,9 @@
     }
 
 
-    public function alumnos(){
-
+    public function alumnos($data){
+        $result = $this->db->insert('alumnos', $data);
+        return $result;
     }
 
 }

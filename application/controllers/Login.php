@@ -126,6 +126,26 @@ class Login extends CI_Controller {
           </script>";
       }
    }
-   }      
+   }
+   
+   public function alumnos(){
+      if($data = !empty($this->input->post('data')) ? $this->input->post('data') : false){
+         $result = $this->Prof_model->alumnos($data);
+         echo json_encode($result);
+       }
+   }
+
+   public function cerrar_sesion() {
+      // Unset User Data
+      $this->session->unset_userdata('logueado');
+      $this->session->sess_destroy();
+
+
+      // Set Message
+      $this->session->set_flashdata('logged_out','You have been Logged Out');
+      //redirect('index.php/usuarios/iniciar_sesion');
+      $this->iniciar_sesion();
+
+}
 }
 
