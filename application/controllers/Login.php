@@ -107,7 +107,6 @@ class Login extends CI_Controller {
       if($nombre && $idgrupo == ""){
          echo "<script>
          alert('Guardado');
-         window.location= 'iniciar_sesion'
          </script>";
       }else{
 
@@ -116,9 +115,8 @@ class Login extends CI_Controller {
       if($result){
          echo "<script>
           alert('Guardado');
-          window.location= 'iniciar_sesion'
           </script>";
-         
+         $this->alumnos();
       }else{
          echo "<script>
           alert('Error al guardar');

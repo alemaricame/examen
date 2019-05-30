@@ -56,7 +56,7 @@
     <header>
         <div class="exam">
             <h1>Examen<h1>
-            <a style="float:right" href="login.php"><i class="material-icons">exit_to_app</i></a>
+            <a style="float:right" href="<?=base_url()?>index.php/login/cerrar_sesion"><i class="material-icons">exit_to_app</i></a>
         </div>
 
     </header>
@@ -100,15 +100,17 @@
 						<input type="text" class="form-control" name="nombremat" id="nombremat" placeholder="Nombre de la materia" required>
 						<label for="inputName"class="control-label" >Grupo:</label>
 						<input type="text" class="form-control" id="idgrupo" name="idgrupo" placeholder="Grupo" >
+
 						<label for="inputName"class="control-label" >Lista de alumnos </label>
+						<p style="color:red;  font-weight: bold;"> *La lista de alumnos debe contener NÚMERO DE CONTROL/ NOMBRE DEL ALUMNO</p>
 						<input type="file" name="xlfile" id="xlf" />
 						<br>
-						<p style="color:red;  font-weight: bold;"> *La lista de alumnos debe contener NÚMERO DE CONTROL/ NOMBRE DEL ALUMNO</p>
+						<button id="subiralum" class="btn btn-info">Subir</button>
+						<pre id="out"></pre>
+						<div id="htmlout"></div>
 						<button id="subirmat" type="submit" class="btn btn-info">Alta</button>
 					</form>
-
-					<pre id="out"></pre>
-					<div id="htmlout"></div>
+					
 					</nav>
 				 </div>
 				 </div>
@@ -135,7 +137,9 @@
 			</table>
 			</div>
 	</div>
-
+		<!-- MODAL 	SUBIR ALUMNOS -->
+		
+		<!-- FIN MODAL SUBIR ALUMNOS -->
 		<!-- MODAL 	SUBIR EXAMEN -->
         <div class="modal fade" id="sexamen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
