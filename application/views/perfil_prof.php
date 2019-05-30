@@ -89,7 +89,6 @@
                   <div class="modal-content">   
                   <div id="page" style="padding:5% 15% 5%;">
                     <nav class="qbootstrap-nav" role="navigation">
-					<form method="post" action="<?php echo base_url()?>index.php/Login/altamateria">
 						<label>Número de profesor: </label>
 						<input type="text" class="form-control" id="nprof" placeholder="Número de profesor" value="<?php echo $idprofesor ?>" disabled>
 						<label>Nombre del profesor: </label>
@@ -101,16 +100,15 @@
 						<label for="inputName"class="control-label" >Grupo:</label>
 						<input type="text" class="form-control" id="idgrupo" name="idgrupo" placeholder="Grupo" >
 
-						<label for="inputName"class="control-label" >Lista de alumnos </label>
+						
+						<button id="subirmat" type="submit" class="btn btn-info">Alta</button>
+					<label for="inputName"class="control-label" >Lista de alumnos </label>
 						<p style="color:red;  font-weight: bold;"> *La lista de alumnos debe contener NÚMERO DE CONTROL/ NOMBRE DEL ALUMNO</p>
 						<input type="file" name="xlfile" id="xlf" />
 						<br>
-						<button id="subiralum" class="btn btn-info">Subir</button>
+						
 						<pre id="out"></pre>
 						<div id="htmlout"></div>
-						<button id="subirmat" type="submit" class="btn btn-info">Alta</button>
-					</form>
-					
 					</nav>
 				 </div>
 				 </div>

@@ -1,5 +1,5 @@
 window.addEventListener('load', function() {
-    var idprofesor = document.getElementById('idprofesor').value;
+    
 
 
     
@@ -37,8 +37,6 @@ window.addEventListener('load', function() {
     });
 
         /* OBTENER LISTA DE ALUMNOS */
-        
-        console.log("materia",idmateria);
 
         var X = XLSX;
         var XW = {
@@ -63,12 +61,36 @@ window.addEventListener('load', function() {
                 if(roa.length) result[sheetName] = roa;
             });
             var variable = result['Hoja1'];
+            $('#subirmat').on('click', function() {
+                var idprofesor = document.getElementById('idprofesor').value;
+                var idmateria=document.getElementById('idmateria').value;
+                var nombremat = document.getElementById('nombremat').value;
+                var idgrupo=document.getElementById('idgrupo').value;
+                var materias={
+                    "idprofesor":idprofesor,
+                    "idmateria":idmateria,
+                    "nombremat":nombremat,
+                    "idgrupo":idgrupo,
+                }
+                console.log("datosmaterias",materias);
+                $.ajax({
+                    type:'POST',
+                    url:"http://localhost/examen/index.php/login/altamateria",
+                    dataType: "JSON",
+                    data : {data:materias}
+                }).done(function(resp){
+                    console.log("ingresado");
+                });
             for(i=1;i<variable.length;i++){
-
-                var matricula = variable[i][0];
-                var nombre = variable[i][1];
+               
                 var idmateria=document.getElementById('idmateria').value;
                 var idgrupo=document.getElementById('idgrupo').value;
+                var matricula = variable[i][0];
+                var nombre = variable[i][1];
+                    
+                    console.log("subirmat");
+                    
+                    console.log("materia",idmateria);
                 var datos={
                     "idmateria":idmateria,
                     "idgrupo":idgrupo,
@@ -76,7 +98,7 @@ window.addEventListener('load', function() {
                     "nombre":nombre
                 }
                 console.log("datos",datos);
-                $('#subiralum').on('click', function() {
+
 
                     $.ajax({
                         type:'POST',
@@ -86,11 +108,14 @@ window.addEventListener('load', function() {
                     }).done(function(resp){
                         console.log("ingresado");
                     });
-                });
+             
+                    
+              
             
             }
-            
+       
             return JSON.stringify(variable);
+        });
         };
     
         return function process_wb(wb) {

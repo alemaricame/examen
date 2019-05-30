@@ -99,37 +99,41 @@ class Login extends CI_Controller {
       echo json_encode($result);
    }
    public function altamateria(){
-      $idprofesor = $this->session->userdata('idprofesor');
-      $idmateria = $this->input->post('idmateria');
-      $nombre = $this->input->post('nombremat');
-      $idgrupo = $this->input->post('idgrupo');
-
-      if($nombre && $idgrupo == ""){
-         echo "<script>
-         alert('Guardado');
-         </script>";
-      }else{
-
-      $result = $this->Prof_model->alta($idprofesor,$idmateria,$nombre,$idgrupo);
-
-      if($result){
-         echo "<script>
-          alert('Guardado');
-          </script>";
-         $this->alumnos();
-      }else{
-         echo "<script>
-          alert('Error al guardar');
-          window.location= 'iniciar_sesion'
-          </script>";
+      if($data = !empty($this->input->post('data')) ? $this->input->post('data') : false){
+         
+         $idprofesor = $this->session->userdata('idprofesor');
+         $idmateria = $data['idmateria'];
+         
+         $nombre = $data['nombremat'];
+         $idgrupo = $data['idgrupo'];
+   
+         if($nombre && $idgrupo == ""){
+            echo "<script>
+            alert('Guardado');
+            </script>";
+         }else{
+   
+         $result = $this->Prof_model->alta($idprofesor,$idmateria,$nombre,$idgrupo);
+   
+         if($result){
+           
+   
+         }else{
+            echo "<script>
+             alert('Error al guardar');
+             window.location= 'iniciar_sesion'
+             </script>";
+         }
       }
-   }
+
+       }
+    
    }
    
    public function alumnos(){
       if($data = !empty($this->input->post('data')) ? $this->input->post('data') : false){
          $result = $this->Prof_model->alumnos($data);
-         echo json_encode($result);
+
        }
    }
 
